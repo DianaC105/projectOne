@@ -1,0 +1,57 @@
+.jumbotron {
+    /*background: url(https://wallpapershome.com/images/pages/pic_h/16049.jpg);*/
+    /*background-blend-mode: luminosity;*/
+    
+    width: 100%;
+    height:50%;
+    text-align: auto;
+    opacity: .65;
+    display: auto;
+    justify-content:center;
+    align-items: center;
+    color: rgba(4, 26, 46, 0.993);
+    text-decoration-color: rgb(219, 207, 207);
+    font-size: 300px;
+    background-blend-mode: color-burn;
+    
+}
+
+body {
+    background: url(https://wallpapershome.com/images/pages/pic_h/16049.jpg);
+    opacity: .90;
+}
+
+#form-group{
+    display: auto;
+    align-items: flex-start;
+}
+
+#col s12 m6{
+    opacity: .65;
+    background-color:red;
+    margin-right: 45px
+}
+
+#exampleFormControlInput1{
+    margin-left: 175px;
+    margin-right: 75px;
+    width: 450px;
+}
+
+#exampleFormControlSelect1{
+    margin-left: 175px;
+    margin-right: 75px;
+    width: 450px;
+}
+#restSearch-appear-here{
+    background-color: rgba(179, 151, 151, 0.897);
+
+}
+
+button{
+    color: white;
+    background-color:#cf4f28;
+    margin-left:200px;
+    margin-top: 25px;
+    width: 100px;
+}

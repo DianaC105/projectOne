@@ -1,0 +1,9 @@
+#jumbotron{
+    background-image: url("https://i.imgur.com/0CU3rjL.jpg");
+    background-blend-mode: hard-light;
+    color:black;
+    border-color: black;
+    text-align: auto;
+    font-family: 'Staatliches', cursive;
+    opacity
+}
