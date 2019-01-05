@@ -19,7 +19,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap.css" />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/js/zomato.js"></script>
     
 </head>
 <body>
@@ -31,7 +32,7 @@
     </div>
 </div>
 
-    <div container >
+    <div class="container" >
         <div class="row">
             <div class="col-lg-9">
                     <form>
@@ -59,7 +60,7 @@
                                 <option>GA</option>
                     <br><br>
                               </select>
-                              <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                              <button class="btn waves-effect waves-light" type="submit" id="search" name="action">Search
                                     <!--<i class="material-icons right"></i>-->
                                   </button> 
                                   <!--<div class = "collection-item">
@@ -75,7 +76,7 @@
                 <div class="row">
                         <div class = "col s12 m6">
                            <div class = "card lighten-4">
-                              <div class = "card-content">
+                              <div class = "card-content" id="map">
                                     <div>
                                             <iframe width="320" height="280" frameborder="0" src="https://www.bing.com/maps/embed?h=280&w=325&cp=40.852500000000006~-74.4814&lvl=11&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
                                             </iframe>
@@ -133,6 +134,6 @@
        </div>
     </footer>
 
-     <script src="geo.js"></script>
+     <script src="assets/js/geo.js"></script>
 </body>
 </html>
