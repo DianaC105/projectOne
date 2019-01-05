@@ -20,10 +20,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap.css" />
 
-    <script src="main.js"></script>
+    
 </head>
 <body>
-
+    <div id="background">
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-4"><bold>Top EATS</bold></h1>
@@ -36,15 +36,17 @@
             <div class="col-lg-9">
                     <form>
                             <div class="form-group">
-                              <label for="exampleFormControlInput1">City</label>
-                              <input type="city" class="form-control" id="exampleFormControlInput1" placeholder="City"
-                              
-                              span style="font-size: 18px; color: rgb(42, 70, 44);">
+                              <label for="exampleFormControlInput1">City<span style="font-size: 18px; color: rgb(244, 113, 66);">
                                 <i class="fas fa-city"></i>
-                              </span>
+                              </span></label>
+                              <input type="city" class="form-control" id="exampleFormControlInput1" placeholder="City">
+                              
+                              
                             </div>
                             <div class="form-group">
-                              <label for="exampleFormControlSelect1">State</label>
+                              <label for="exampleFormControlSelect1">State<span style="font-size: 18px; color:rgb(244, 113, 66);">
+                                <i class="fas fa-flag-usa"></i>
+                              </span></label>
                               <select class="form-control" id="exampleFormControlSelect1">
                                 <option>AK</option>
                                 <option>AZ</option>
@@ -74,10 +76,21 @@
                         <div class = "col s12 m6">
                            <div class = "card lighten-4">
                               <div class = "card-content">
+                                    <div>
+                                            <iframe width="320" height="280" frameborder="0" src="https://www.bing.com/maps/embed?h=280&w=325&cp=40.852500000000006~-74.4814&lvl=11&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+                                            </iframe>
+                                            <div style="white-space: nowrap; text-align: center; width: 320px; padding: 6px 0;">
+                                               <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=40.852500000000006~-74.4814&amp;sty=r&amp;lvl=11&amp;FORM=MBEDLD">View Larger Map</a> &nbsp; | &nbsp;
+                                               <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=40.852500000000006~-74.4814&amp;sty=r&amp;lvl=11&amp;rtp=~pos.40.852500000000006_-74.4814____&amp;FORM=MBEDLD">Get Directions</a>
+                                           </div>
+                                       </div>
+
+
+                            
                                  <span class = "card-title"><h3>MAP IMAGES</h3></span>
                                  <p>Restaurant Name</p>
                                  <p>Restaurant Address</p>
-                                 <p>Restaurant </p>
+                                 <a href="#">
                               </div>
                               
                               <div class = "card-action">
@@ -94,6 +107,7 @@
                   <div class = "card-content">
                    <span class = "card-title"><h3>SAVE RESULTS GO HERE</h3></span>
                 </div>
+        
 
              </div>
             </div>
@@ -106,10 +120,19 @@
 
         </div>
     </div>
-     <footer>
-         <p>footer</p>
-     </footer>
+    </div>
+    <!--Footer-->
+    <footer style = "border-top: 7px solid rgb(209, 178, 167)">
     
+        <div height= 20px width = 100% style="background-color:rgb(244, 113, 66);";>
+           
+            <p class="copyright" style="margin: auto; text-align: center">
+              Copyright&copy;
+            </p>
+    
+       </div>
+    </footer>
+
+     <script src="geo.js"></script>
 </body>
 </html>
-
