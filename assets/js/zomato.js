@@ -10,8 +10,8 @@ $(document).ready(function () {
     $("#search").on("click", function (event) {
         event.preventDefault()
         //zomato ajax call
-        cityName = "q=" + $("#cityInput").val();
-        var searchCode = $("#stateInput").val();
+        cityName = "q=" + $("#exampleFormControlInput1").val();
+        var searchCode = $("#exampleFormControlSelect1").val();
 
         // Gets cityID commented out for possible later use
         // var queryURL = cityURL + cityName;
@@ -38,7 +38,7 @@ $(document).ready(function () {
         // });
 
         //mapquest api gets Lat and Long
-        var mapquestCity = "&location=" + $("#cityInput").val();
+        var mapquestCity = "&location=" + $("#exampleFormControlInput1").val();
         var mapquestURL = "http://www.mapquestapi.com/geocoding/v1/address?key=zhLU35myS6CkWa8KkESTg9EJ2nTuLAnK" + mapquestCity;
         console.log(mapquestURL)
 
@@ -86,6 +86,8 @@ $(document).ready(function () {
                 }
             }).then(function (search) {
                 console.log(search.restaurants);
+                $("#restSearch-appear-here").text(search.restaurants[0].restaurant.name);
+                $("#restSearch-appear-here").append("<img src='" + search.restaurants[0].restaurant.featured_image + "'>");
             })
             // console.log(lat);
             // console.log(long);
