@@ -79,13 +79,16 @@ $(document).ready(function () {
                     "user-key": "090b19f9dcd3d75690c6aa76fb72d9a2"
                 }
             }).then(function (search) {
-                console.log(search.restaurants);
-                $("#restSearch-appear-here").text(search.restaurants[0].restaurant.name);
-                $("#restSearch-appear-here").append("<img src='" + search.restaurants[0].restaurant.featured_image + "'>");
-            })
+                console.log(search.restaurants)
+                for (i = 0; i < search.restaurants.length; i++) {
 
+                    $("#restSearch-appear-here").append("<h3>"+search.restaurants[i].restaurant.name+"</h3>");
+                    $("#restSearch-appear-here").append("<img class='rest-image' src='" + search.restaurants[i].restaurant.featured_image + "'>");
+                }
         })
-    });
+
+    })
+});
 })
 
 

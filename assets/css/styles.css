@@ -45,7 +45,16 @@ body {
 }
 #restSearch-appear-here{
     background-color: rgba(179, 151, 151, 0.897);
+    
 
+}
+h3{
+    font-size: 25px;
+}
+
+.rest-image{
+    height: 150px;
+    width: 200px;
 }
 
 button{

@@ -1,17 +1,20 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Top EATS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Bootstrap Link-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
     <!--FontAwesome Link-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    
-  <!--Google Fonts-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+
+    <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/styles.css" />
@@ -21,34 +24,41 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/zomato.js"></script>
-    
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+
 </head>
+
 <body>
     <div id="background">
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="display-4"><bold>Top EATS</bold></h1>
-            <p class="lead"><bold>Find The Best Restaurants In Your Town or Any Town</bold></p>
-    </div>
-</div>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">
+                    <bold>Top EATS</bold>
+                </h1>
+                <p class="lead">
+                    <bold>Find The Best Restaurants In Your Town or Any Town</bold>
+                </p>
+            </div>
+        </div>
 
-    <div class="container" >
-        <div class="row">
-            <div class="col-lg-9">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
                     <form>
-                            <div class="form-group">
-                              <label for="exampleFormControlInput1">City<span style="font-size: 18px; color: rgb(244, 113, 66);">
-                                <i class="fas fa-city"></i>
-                              </span></label>
-                              <input type="city" class="form-control" id="exampleFormControlInput1" placeholder="City">
-                              
-                              
-                            </div>
-                            <div class="form-group">
-                              <label for="exampleFormControlSelect1">State<span style="font-size: 18px; color:rgb(244, 113, 66);">
-                                <i class="fas fa-flag-usa"></i>
-                              </span></label>
-                              <select class="form-control" id="exampleFormControlSelect1">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">City<span style="font-size: 18px; color: rgb(244, 113, 66);">
+                                    <i class="fas fa-city"></i>
+                                </span></label>
+                            <input type="city" class="form-control" id="exampleFormControlInput1" placeholder="City">
+
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">State<span style="font-size: 18px; color:rgb(244, 113, 66);">
+                                    <i class="fas fa-flag-usa"></i>
+                                </span></label>
+                            <select class="form-control" id="exampleFormControlSelect1">
                                 <option>AK</option>
                                 <option>AZ</option>
                                 <option>AR</option>
@@ -58,82 +68,90 @@
                                 <option>DE</option>
                                 <option>FL</option>
                                 <option>GA</option>
-                    <br><br>
-                              </select>
-                              <button class="btn waves-effect waves-light" type="submit" id="search" name="action">Search
-                                    <!--<i class="material-icons right"></i>-->
-                                  </button> 
-                                  <!--<div class = "collection-item">
+                                <br><br>
+                            </select>
+                            <button class="btn waves-effect waves-light" type="submit" id="search" name="action">Search
+                                <!--<i class="material-icons right"></i>-->
+                            </button>
+                            <!--<div class = "collection-item">
                                     <code class = " language-markup"></code>
                                     <a href = "#!" class = "waves-effect waves-yellow btn secondary-content">
                                        Click Me!</a>
-                                 </div>-->   
-                            </div>
-                          </form>
-            </div>
-            <br><br>
-            <div class="col-lg-3">
-                <div class="row">
-                        <div class = "col s12 m6">
-                           <div class = "card lighten-4">
-                              <div class = "card-content" id="map">
+                                 </div>-->
+                        </div>
+                    </form>
+                </div>
+                <br><br>
+                <div class="col-lg-3">
+                    <div class="row">
+                        <div class="col s12 m6">
+                            <div class="card lighten-4">
+                                <div class="card-content" id="map">
                                     <div>
-                                            <iframe width="320" height="280" frameborder="0" src="https://www.bing.com/maps/embed?h=280&w=325&cp=40.852500000000006~-74.4814&lvl=11&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+                                        <div id='map' style='width: 400px; height: 300px;'></div>
+
+
+                                        <!-- <iframe width="320" height="280" frameborder="0" src="https://www.bing.com/maps/embed?h=280&w=325&cp=40.852500000000006~-74.4814&lvl=11&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
                                             </iframe>
                                             <div style="white-space: nowrap; text-align: center; width: 320px; padding: 6px 0;">
                                                <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=40.852500000000006~-74.4814&amp;sty=r&amp;lvl=11&amp;FORM=MBEDLD">View Larger Map</a> &nbsp; | &nbsp;
-                                               <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=40.852500000000006~-74.4814&amp;sty=r&amp;lvl=11&amp;rtp=~pos.40.852500000000006_-74.4814____&amp;FORM=MBEDLD">Get Directions</a>
-                                           </div>
-                                       </div>
+                                               <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=40.852500000000006~-74.4814&amp;sty=r&amp;lvl=11&amp;rtp=~pos.40.852500000000006_-74.4814____&amp;FORM=MBEDLD">Get Directions</a> -->
+                                    </div>
+                                </div>
 
 
-                            
-                                 <span class = "card-title"><h3>MAP IMAGES</h3></span>
-                                 <p>Restaurant Name</p>
-                                 <p>Restaurant Address</p>
-                                 <a href="#">
-                              </div>
-                              
-                              <div class = "card-action">
-                                 <button class = "btn waves-effect waves-light blue-grey">
-                                    <i class = "material-icons">RESTAURANT LINK</i></button>
-                                 <a class = "right blue-grey-text" href = "http://www.tutorialspoint.com">
+
+                                <span class="card-title">
+                                    <h3>MAP IMAGES</h3>
+                                </span>
+                                <p>Restaurant Name</p>
+                                <p>Restaurant Address</p>
+                                <a href="#">
+                            </div>
+
+                            <div class="card-action">
+                                <button class="btn waves-effect waves-light blue-grey">
+                                    <i class="material-icons">RESTAURANT LINK</i></button>
+                                <a class="right blue-grey-text" href="http://www.tutorialspoint.com">
                                     www.tutorialspoint.com</a>
-                              </div>
-                           </div>
-                </div>
-                
-                <div class="row">
-                 <div class = "card lighten-4">
-                  <div class = "card-content">
-                   <span class = "card-title"><h3>SAVE RESULTS GO HERE</h3></span>
-                </div>
-        
+                            </div>
+                        </div>
+                    </div>
 
-             </div>
+                    <div class="row">
+                        <div class="card lighten-4">
+                            <div class="card-content">
+                                <span class="card-title">
+                                    <h3>SAVE RESULTS GO HERE</h3>
+                                </span>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="col-lg-9">
+                <div class="row">
+                    <div id="restSearch-appear-here"></div>
+
+                </div>
             </div>
         </div>
-        </div>
-        <br><br>
-        <div class="col-lg-10">
-        <div class="row">
-                <div id="restSearch-appear-here"></div>
+        <!--Footer-->
+        <footer style="border-top: 7px solid rgb(209, 178, 167)">
 
-        </div>
-    </div>
-    </div>
-    <!--Footer-->
-    <footer style = "border-top: 7px solid rgb(209, 178, 167)">
-    
-        <div height= 20px width = 100% style="background-color:rgb(244, 113, 66);";>
-           
-            <p class="copyright" style="margin: auto; text-align: center">
-              Copyright&copy;
-            </p>
-    
-       </div>
-    </footer>
+            <div height=20px width=100% style="background-color:rgb(244, 113, 66);" ;>
 
-     <script src="assets/js/geo.js"></script>
+                <p class="copyright" style="margin: auto; text-align: center">
+                    Copyright&copy;
+                </p>
+
+            </div>
+        </footer>
+        <script src="assets/js/mapbox.js"></script>
+        <script src="assets/js/geo.js"></script>
 </body>
+
 </html>
