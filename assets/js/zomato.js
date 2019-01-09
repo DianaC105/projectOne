@@ -93,7 +93,7 @@ $(document).ready(function () {
     })
 });
 })
-// $(".restName").append("<h3>"+search.restaurants[i].restaurant.name+"</h3>");
+
                    
 
 
