@@ -49,12 +49,12 @@ body {
 
 }
 h3{
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .rest-image{
-    height: 150px;
-    width: 200px;
+    height: 100px;
+    width: 150px;
 }
 
 button{
@@ -67,4 +67,7 @@ button{
 
 label{
     margin-left:170px;
+}
+.lighten-4{
+    opacity: 0;
 }

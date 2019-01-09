@@ -9,6 +9,10 @@ $(document).ready(function () {
 
     $("#search").on("click", function (event) {
         event.preventDefault()
+        $(".lighten-4").animate({opacity:1});
+        lat=[];
+        long = [];
+        $("#restList").empty();
         //zomato ajax call
         cityName = "q=" + $("#exampleFormControlInput1").val();
         var searchCode = $("#exampleFormControlSelect1").val();
@@ -80,21 +84,24 @@ $(document).ready(function () {
                 }
             }).then(function (search) {
                 console.log(search.restaurants)
+                
                 for (i = 0; i < search.restaurants.length; i++) {
+                    
 
                     $("#restList").append("<div class='card-header n"+ i +"'></div>");
-                    $(".n"+i+"").append("<h3>"+search.restaurants[i].restaurant.name+"</h3>");
+                    $(".n"+i+"").append("<h3>" +search.restaurants[i].restaurant.name+"</h3>");
                     $("#restList").append("<div class='card-body r"+ i +"'></div>");
-                    $(".r"+i+"").append("<img class='rest-image' src='"+search.restaurants[i].restaurant.featured_image+"'>")
+                    $(".r"+i+"").append("<img class='rest-image' src='"+search.restaurants[i].restaurant.featured_image+"'>");
+                    $(".r"+i+"").append("<h3><a href='" + search.restaurants[i].restaurant.url+"' target='blank'> Zomato Link </h3>");
                     
                 }
         })
                 mapboxgl.accessToken = 'pk.eyJ1IjoiamVla29qZWVrIiwiYSI6ImNqcW9kcm01NTRjeW80NGxibGUzY2RqaHIifQ.4Z__ZLSSP5pzbZreWBFDbQ';
                 var map = new mapboxgl.Map({
                     container: 'map',
-                    center: [long, lat],
+                    center: [long[0], lat[0]],
                     style: 'mapbox://styles/mapbox/streets-v9',
-                    zoom: 9
+                    zoom: 11
                 });
     })
 });
