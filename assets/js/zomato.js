@@ -89,11 +89,13 @@ $(document).ready(function () {
                     
                 }
         })
-
+                mapboxgl.accessToken = 'pk.eyJ1IjoiamVla29qZWVrIiwiYSI6ImNqcW9kcm01NTRjeW80NGxibGUzY2RqaHIifQ.4Z__ZLSSP5pzbZreWBFDbQ';
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    center: [long, lat],
+                    style: 'mapbox://styles/mapbox/streets-v9',
+                    zoom: 9
+                });
     })
 });
 })
-
-                   
-
-
