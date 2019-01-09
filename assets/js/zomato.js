@@ -82,8 +82,11 @@ $(document).ready(function () {
                 console.log(search.restaurants)
                 for (i = 0; i < search.restaurants.length; i++) {
 
-                    $("#restSearch-appear-here").append("<h3>"+search.restaurants[i].restaurant.name+"</h3>");
-                    $("#restSearch-appear-here").append("<img class='rest-image' src='" + search.restaurants[i].restaurant.featured_image + "'>");
+                    $("#restList").append("<div class='card-header n"+ i +"'></div>");
+                    $(".n"+i+"").append("<h3>"+search.restaurants[i].restaurant.name+"</h3>");
+                    $("#restList").append("<div class='card-body r"+ i +"'></div>");
+                    $(".r"+i+"").append("<img class='rest-image' src='"+search.restaurants[i].restaurant.featured_image+"'>")
+                    
                 }
         })
                 mapboxgl.accessToken = 'pk.eyJ1IjoiamVla29qZWVrIiwiYSI6ImNqcW9kcm01NTRjeW80NGxibGUzY2RqaHIifQ.4Z__ZLSSP5pzbZreWBFDbQ';
