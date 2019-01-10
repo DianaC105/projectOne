@@ -9,9 +9,13 @@ $(document).ready(function () {
 
     $("#search").on("click", function (event) {
         event.preventDefault()
+        $(".lighten-4").animate({opacity:1});
+        lat=[];
+        long = [];
+        $("#restList").empty();
         //zomato ajax call
-        cityName = "q=" + $("#cityInput").val();
-        var searchCode = $("#stateInput").val();
+        cityName = "q=" + $("#exampleFormControlInput1").val();
+        var searchCode = $("#exampleFormControlSelect1").val();
 
         // Gets cityID commented out for possible later use
         // var queryURL = cityURL + cityName;
@@ -38,7 +42,7 @@ $(document).ready(function () {
         // });
 
         //mapquest api gets Lat and Long
-        var mapquestCity = "&location=" + $("#cityInput").val();
+        var mapquestCity = "&location=" + $("#exampleFormControlInput1").val();
         var mapquestURL = "http://www.mapquestapi.com/geocoding/v1/address?key=zhLU35myS6CkWa8KkESTg9EJ2nTuLAnK" + mapquestCity;
         console.log(mapquestURL)
 
@@ -49,12 +53,6 @@ $(document).ready(function () {
 
         }).then(function (result) {
             console.log(result);
-            //console.log(response.results["0"].locations["0"].latLng.lat);
-            // var lattitude=result.results[0].locations[0].latLng.lat;
-            // var longitude =result.results[0].locations[0].latLng.lng;
-
-            // console.log(lattitude);
-            // console.log(longitude);
             for (i = 0; i < result.results[0].locations.length; i++) {
                 adminAreaCode = result.results[0].locations[i].adminArea3;
                 if (adminAreaCode === searchCode) {
@@ -85,51 +83,26 @@ $(document).ready(function () {
                     "user-key": "090b19f9dcd3d75690c6aa76fb72d9a2"
                 }
             }).then(function (search) {
-                console.log(search.restaurants);
-            })
-            // console.log(lat);
-            // console.log(long);
+                console.log(search.restaurants)
+                
+                for (i = 0; i < search.restaurants.length; i++) {
+                    
 
-            // var searchLat = "&lat=" + lat[0];
-            // var searchLong = "&lon=" + long[0];
-            // var searchID = "entity_id=" + cityID[0];
-            // var searchType = "&entity_type=city";
-            // var searchRadius = "&radius=10000";
-            // var searchCount = "&count=10";
-            // var searchURL = "https://developers.zomato.com/api/v2.1/search?";
-            // var newURL = searchURL + searchID + searchType + searchCount + searchLat + searchLong + searchRadius;
-            // console.log(searchURL);
-
-            // $.ajax({
-            //     url: newURL,
-            //     method: "GET",
-            //     headers: {
-            //         "user-key": "090b19f9dcd3d75690c6aa76fb72d9a2"
-            //     }
-            // }).then(function (search) {
-            //     console.log(search);
-            // })
+                    $("#restList").append("<div class='card-header n"+ i +"'></div>");
+                    $(".n"+i+"").append("<h3>" +search.restaurants[i].restaurant.name+"</h3>");
+                    $("#restList").append("<div class='card-body r"+ i +"'></div>");
+                    $(".r"+i+"").append("<img class='rest-image' src='"+search.restaurants[i].restaurant.featured_image+"'>");
+                    $(".r"+i+"").append("<h3><a href='" + search.restaurants[i].restaurant.url+"' target='blank'> Zomato Link </h3>");
+                    
+                }
         })
-    });
+                mapboxgl.accessToken = 'pk.eyJ1IjoiamVla29qZWVrIiwiYSI6ImNqcW9kcm01NTRjeW80NGxibGUzY2RqaHIifQ.4Z__ZLSSP5pzbZreWBFDbQ';
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    center: [long[0], lat[0]],
+                    style: 'mapbox://styles/mapbox/streets-v9',
+                    zoom: 11
+                });
+    })
+});
 })
-
-
-//     var searchLat = "&lat=" + lat[0];
-//     var searchLong = "&lon=" + long[0];
-//     var searchID = "entity_id=" + cityID[0];
-//     var searchType = "&entity_type=city";
-//     var searchRadius = "&radius=10000";
-//     var searchCount= "count=10";
-//     var searchURL = "https://developers.zomato.com/api/v2.1/search?";
-//     var newURL = searchURL + searchID + searchType + searchCount + searchLat + searchLong + searchRadius;
-
-//     $.ajax({
-//         url: newURL,
-//         method: "GET",
-//         headers: {
-//             "user-key": "090b19f9dcd3d75690c6aa76fb72d9a2"
-//         }
-//     }).then(function(search){
-//         console.log(search);
-//     })
-// })
