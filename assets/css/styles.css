@@ -1,24 +1,63 @@
+ul{
+   height: 60px; 
+   background-color: #cf4f28;
+   flood-opacity: inherit;
+   color: white;
+}
+a{
+    color: white;
+    font-size: 18px;
+    justify-content:center;
+    align-items: center;
+    text-align: auto;
+}
+
+.display-4{
+    height: 50px;
+    width: 50px;
+}
+
 .jumbotron {
     /*background: url(https://wallpapershome.com/images/pages/pic_h/16049.jpg);*/
     /*background-blend-mode: luminosity;*/
     
     width: 100%;
-    height:50%;
+    height:55%;
     text-align: auto;
-    opacity: .65;
+    /* opacity: .65; */
+    background-color: rgba(255, 255, 255, 0.664);
     display: auto;
     justify-content:center;
     align-items: center;
     color: rgba(4, 26, 46, 0.993);
     text-decoration-color: rgb(219, 207, 207);
-    font-size: 300px;
     background-blend-mode: color-burn;
+    padding-top: 10px;
     
+}
+
+h1, {
+    font-size: 300px;
+}
+#userName {
+    width: 150px;
+    margin-left: 70%;
+    border-color: #cf4f28;
+    color: #cf4f28;
+
+}
+
+#password {
+    width: 150px;
+    margin-left:70%;
+    border-color: #cf4f28;
+    color: #cf4f28;
 }
 
 body {
     background: url(https://wallpapershome.com/images/pages/pic_h/16049.jpg);
     opacity: .90;
+    background-repeat: no-repeat;
 }
 
 #form-group{
@@ -33,21 +72,24 @@ body {
 }
 
 #exampleFormControlInput1{
-    margin-left: 0px;
+    margin-left: 75px;
     margin-right: 75px;
     width: 450px;
+    background-color: aliceblue;
 }
 
 #exampleFormControlSelect1{
-    margin-left: 0px;
+    margin-left: 75px;
     margin-right: 75px;
     width: 450px;
+    background: aliceblue;
+    opacity: 1;
 }
+
 #restSearch-appear-here{
     background-color: rgba(179, 151, 151, 0.897);
-    
-
 }
+
 h3{
     font-size: 30px;
 }
@@ -65,9 +107,15 @@ button{
     width: 100px;
 }
 
+#card-content{
+    font-size: 18px;
+}
+
+.btnSubmit {
+    margin-left: 75%;
+    margin-bottom: 75%;
+}
+
 label{
     margin-left:170px;
-}
-.lighten-4{
-    opacity: 0;
 }
