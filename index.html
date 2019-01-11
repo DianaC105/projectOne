@@ -32,12 +32,11 @@
 
 
   <!--Javascript Bootstrap Link-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
   <!--Map Box API-->
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
  
   <!--Favicon Link-->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -57,18 +56,19 @@
     </ul>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 style="font-size:85px;"><img class="display-4" src="assets/image/forkNknifeLogo.jpg" alt="logo" /><bold>Top EATS</bold></h1>
+    <h1 style="font-size:85px;"><img class="display-4" src="assets/image/logo.png" alt="logo" /><bold>Top EATS</bold></h1>
       <p class="lead"><bold>Find The Best Restaurants In Your Town or Any Town</bold></p>
       <br>
       <form>
+        <div class="container">
           <div class="form-group">
             <label for="exampleFormControlInput1">City<span style="font-size: 18px; color: rgb(244, 113, 66);">
               <i class="fas fa-city"></i>
             </span></label>
             <input type="city" class="form-control" i class="fas fa-city" id="exampleFormControlInput1" placeholder="City">
             
-            
-          </div>
+            </div>
+          
           <div class="form-group">
             <label for="exampleFormControlSelect1">State<span style="font-size: 18px; color:rgb(244, 113, 66);">
               <i class="fas fa-flag-usa"></i>
@@ -85,7 +85,7 @@
               <option>GA</option>
   <br><br>
             </select>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Search
+            <button class="btn waves-effect waves-light" id="search" type="submit" name="action">Search
                   <!--<i class="material-icons right"></i>-->
                 </button> 
                 <!--<div class = "collection-item">
@@ -94,11 +94,14 @@
                      Click Me!</a>
                </div>--> 
           </div>
+        </div>
         </form>
+      
   </div>
-</div>
+  </div>
 
-    <div container >
+
+    <div class="container" >
         <div class="row">
             <!---<div class="col-lg-9">
                     <form>
@@ -138,29 +141,20 @@
                                  </div> 
                             </div>
                           </form>-->
-            </div>
-            </div>
             <br><br>
+            <div class="col-lg-9"></div>
             <div class="col-lg-3">
                 <div class="row">
                         <div class = "col s12 m6">
                            <div class = "card lighten-4">
-                              <div class = "card-content">
-                                    <div>
-                                            <iframe width="320" height="280" frameborder="0" link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' >
-                                            </iframe>
-                                            <div style="white-space: nowrap; text-align: center; width: 320px; padding: 6px 0;">
-                                               <!--<a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=40.852500000000006~-74.4814&amp;sty=r&amp;lvl=11&amp;FORM=MBEDLD">View Larger Map</a> &nbsp; | &nbsp;
-                                               <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=40.852500000000006~-74.4814&amp;sty=r&amp;lvl=11&amp;rtp=~pos.40.852500000000006_-74.4814____&amp;FORM=MBEDLD">Get Directions</a>-->
-                                           </div>-->
-                                       </div>
+                              <div class = "card-content" id="map">
 
 
                             
-                                 <span class = "card-title"><h3>MAP IMAGES</h3></span>
+                                 <!-- <span class = "card-title"><h3>MAP IMAGES</h3></span>
                                  <p>Restaurant Name</p>
                                  <p>Restaurant Address</p>
-                                 <a href="#">
+                                 <a href="#"> -->
                               </div>
                               
                               <!--<div class = "card-action">
@@ -176,16 +170,22 @@
 
              </div>
             </div>
+          </div>
+        </div>
+
         
         
         <br><br>
-        <div class="col-lg-10">
+
         <div class="row">
-                <div id="restSearch-appear-here"></div>
+            <div class="col-lg-8">
+                <div class="card" id="restList"></div>
 
         </div>
     </div>
     </div>
+  </div>
+</div>
     <!--Footer-->
     <footer style = "border-top: 7px solid rgb(209, 178, 167)">
     
@@ -197,8 +197,7 @@
     
        </div>
     </footer>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
-     <script src="geo.js"></script>
+     <script src="assets/js/geo.js"></script>
 
 </body>
 
