@@ -13,6 +13,11 @@ $(document).ready(function () {
         lat = [];
         long = [];
         $("#restList").empty();
+        $("#restList2").empty();
+        $("#restList3").empty();
+        $("#restList").animate({ opacity: 1});
+        $("#restList2").animate({ opacity: 1 });
+        $("#restList3").animate({ opacity: 1 });
         //zomato ajax call
         cityName = "q=" + $("#exampleFormControlInput1").val();
         var searchCode = $("#exampleFormControlSelect1").val();
@@ -91,21 +96,21 @@ $(document).ready(function () {
                         $("#restList").append("<div class='card-header n" + i + "'></div>");
                         $(".n" + i + "").append("<h3>" + search.restaurants[i].restaurant.name + "</h3>");
                         $("#restList").append("<div class='card-body r" + i + "'></div>");
-                        $(".r" + i + "").append("<img class='rest-image' src='" + search.restaurants[i].restaurant.featured_image + "'>");
+                        $(".r" + i + "").append("<img class='rest-image' src='" + search.restaurants[i].restaurant.featured_image + "' alt='Sorry No Image Found'>");
                         $(".r" + i + "").append("<h3><a href='" + search.restaurants[i].restaurant.url + "' target='blank'> Zomato Link </h3>");
                     }
                     else  if(i<=5 && i>2){
                         $("#restList2").append("<div class='card-header n" + i + "'></div>");
                         $(".n" + i + "").append("<h3>" + search.restaurants[i].restaurant.name + "</h3>");
                         $("#restList2").append("<div class='card-body r" + i + "'></div>");
-                        $(".r" + i + "").append("<img class='rest-image' src='" + search.restaurants[i].restaurant.featured_image + "'>");
+                        $(".r" + i + "").append("<img class='rest-image' src='" + search.restaurants[i].restaurant.featured_image + "' alt='Sorry No Image Found'>");
                         $(".r" + i + "").append("<h3><a href='" + search.restaurants[i].restaurant.url + "' target='blank'> Zomato Link </h3>");
                     }
                     else{
                         $("#restList3").append("<div class='card-header n" + i + "'></div>");
                         $(".n" + i + "").append("<h3>" + search.restaurants[i].restaurant.name + "</h3>");
                         $("#restList3").append("<div class='card-body r" + i + "'></div>");
-                        $(".r" + i + "").append("<img class='rest-image' src='" + search.restaurants[i].restaurant.featured_image + "'>");
+                        $(".r" + i + "").append("<img class='rest-image' src='" + search.restaurants[i].restaurant.featured_image + "' alt='Sorry No Image Found'>");
                         $(".r" + i + "").append("<h3><a href='" + search.restaurants[i].restaurant.url + "' target='blank'> Zomato Link </h3>");
                     }
                 }

@@ -5,7 +5,6 @@ ul{
    color: white;
 }
 a{
-    color: white;
     font-size: 18px;
     justify-content:center;
     align-items: center;
@@ -58,6 +57,7 @@ body {
     background: url(https://wallpapershome.com/images/pages/pic_h/16049.jpg);
     opacity: .90;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #form-group{
@@ -92,11 +92,12 @@ body {
 
 h3{
     font-size: 30px;
+    color:blue;
 }
 
 .rest-image{
-    height: 100px;
-    width: 150px;
+    height: 90px;
+    width: 120px;
 }
 
 button{
@@ -122,4 +123,16 @@ label{
 #footer{
     position: relative;
     margin-bottom: 0px;
+}
+.lighten-4{
+    opacity:0;
+}
+#restList{
+    opacity:0;
+}
+#restList2{
+    opacity:0;
+}
+#restList3{
+    opacity:0;
 }
