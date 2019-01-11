@@ -15,7 +15,7 @@ $(document).ready(function () {
         $("#restList").empty();
         $("#restList2").empty();
         $("#restList3").empty();
-        $("#restList").animate({ opacity: 1});
+        $("#restList").animate({ opacity: 1 });
         $("#restList2").animate({ opacity: 1 });
         $("#restList3").animate({ opacity: 1 });
         //zomato ajax call
@@ -99,14 +99,14 @@ $(document).ready(function () {
                         $(".r" + i + "").append("<img class='rest-image' src='" + search.restaurants[i].restaurant.featured_image + "' alt='Sorry No Image Found'>");
                         $(".r" + i + "").append("<h3><a href='" + search.restaurants[i].restaurant.url + "' target='blank'> Zomato Link </h3>");
                     }
-                    else  if(i<=5 && i>2){
+                    else if (i <= 5 && i > 2) {
                         $("#restList2").append("<div class='card-header n" + i + "'></div>");
                         $(".n" + i + "").append("<h3>" + search.restaurants[i].restaurant.name + "</h3>");
                         $("#restList2").append("<div class='card-body r" + i + "'></div>");
                         $(".r" + i + "").append("<img class='rest-image' src='" + search.restaurants[i].restaurant.featured_image + "' alt='Sorry No Image Found'>");
                         $(".r" + i + "").append("<h3><a href='" + search.restaurants[i].restaurant.url + "' target='blank'> Zomato Link </h3>");
                     }
-                    else{
+                    else {
                         $("#restList3").append("<div class='card-header n" + i + "'></div>");
                         $(".n" + i + "").append("<h3>" + search.restaurants[i].restaurant.name + "</h3>");
                         $("#restList3").append("<div class='card-body r" + i + "'></div>");
@@ -114,14 +114,47 @@ $(document).ready(function () {
                         $(".r" + i + "").append("<h3><a href='" + search.restaurants[i].restaurant.url + "' target='blank'> Zomato Link </h3>");
                     }
                 }
+
+                mapboxgl.accessToken = 'pk.eyJ1IjoiamVla29qZWVrIiwiYSI6ImNqcW9kcm01NTRjeW80NGxibGUzY2RqaHIifQ.4Z__ZLSSP5pzbZreWBFDbQ';
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    center: [long[0], lat[0]],
+                    style: 'mapbox://styles/mapbox/streets-v9',
+                    zoom: 10
+                });
+
+                for (i = 0; i < search.restaurants.length; i++) {
+                    var geojson = {
+                        type: 'FeatureCollection',
+                        features: [{
+                            type: 'Feature',
+                            geometry: {
+                                type: 'Point',
+                                coordinates: [search.restaurants[i].restaurant.location.longitude, search.restaurants[i].restaurant.location.latitude]
+                            },
+                            properties: {
+                                title: search.restaurants[i].restaurant.name,
+                                description: search.restaurants[i].restaurant.cuisines
+                            }
+                        }]
+                    };
+
+                    // add markers to map
+                    geojson.features.forEach(function (marker) {
+
+                        // create a HTML element for each feature
+                        var el = document.createElement('div');
+                        el.className = 'marker';
+
+                        // make a marker for each feature and add to the map
+                        new mapboxgl.Marker(el)
+                            .setLngLat(marker.geometry.coordinates)
+                            .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                                .setHTML('<h4>' + marker.properties.title + '</h4><p>' + marker.properties.description + '</p>'))
+                            .addTo(map);
+                    });
+                }
             })
-            mapboxgl.accessToken = 'pk.eyJ1IjoiamVla29qZWVrIiwiYSI6ImNqcW9kcm01NTRjeW80NGxibGUzY2RqaHIifQ.4Z__ZLSSP5pzbZreWBFDbQ';
-            var map = new mapboxgl.Map({
-                container: 'map',
-                center: [long[0], lat[0]],
-                style: 'mapbox://styles/mapbox/streets-v9',
-                zoom: 11
-            });
         })
     });
 })
