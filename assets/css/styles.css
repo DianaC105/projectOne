@@ -91,7 +91,7 @@ body {
 }
 
 h3{
-    font-size: 30px;
+    font-size: 20px;
     color:blue;
 }
 
@@ -136,3 +136,25 @@ label{
 #restList3{
     opacity:0;
 }
+.marker {
+    background-image: url('../css/mapbox-icon.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .mapboxgl-popup {
+    max-width: 200px;
+  }
+  
+  .mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h4 {
+      font: bolder;
+      font-weight: bolder;
+  }
