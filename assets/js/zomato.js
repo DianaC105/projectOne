@@ -9,8 +9,8 @@ $(document).ready(function () {
 
     $("#search").on("click", function (event) {
         event.preventDefault()
-        $(".lighten-4").animate({opacity:1});
-        lat=[];
+        $(".lighten-4").animate({ opacity: 1 });
+        lat = [];
         long = [];
         $("#restList").empty();
         //zomato ajax call
@@ -71,7 +71,7 @@ $(document).ready(function () {
             var searchID = "entity_id=" + cityID[0];
             var searchType = "&entity_type=city";
             var searchRadius = "&radius=10000";
-            var searchCount = "&count=10";
+            var searchCount = "&count=9";
             var searchURL = "https://developers.zomato.com/api/v2.1/search?";
             var newURL = searchURL + searchCount + searchLat + searchLong + searchRadius;
             console.log(newURL);
@@ -84,25 +84,39 @@ $(document).ready(function () {
                 }
             }).then(function (search) {
                 console.log(search.restaurants)
-                
-                for (i = 0; i < search.restaurants.length; i++) {
-                    
 
-                    $("#restList").append("<div class='card-header n"+ i +"'></div>");
-                    $(".n"+i+"").append("<h3>" +search.restaurants[i].restaurant.name+"</h3>");
-                    $("#restList").append("<div class='card-body r"+ i +"'></div>");
-                    $(".r"+i+"").append("<img class='rest-image' src='"+search.restaurants[i].restaurant.featured_image+"'>");
-                    $(".r"+i+"").append("<h3><a href='" + search.restaurants[i].restaurant.url+"' target='blank'> Zomato Link </h3>");
-                    
+                for (i = 0; i < search.restaurants.length; i++) {
+
+                    if (i <= 2) {
+                        $("#restList").append("<div class='card-header n" + i + "'></div>");
+                        $(".n" + i + "").append("<h3>" + search.restaurants[i].restaurant.name + "</h3>");
+                        $("#restList").append("<div class='card-body r" + i + "'></div>");
+                        $(".r" + i + "").append("<img class='rest-image' src='" + search.restaurants[i].restaurant.featured_image + "'>");
+                        $(".r" + i + "").append("<h3><a href='" + search.restaurants[i].restaurant.url + "' target='blank'> Zomato Link </h3>");
+                    }
+                    else  if(i<=5 && i>2){
+                        $("#restList2").append("<div class='card-header n" + i + "'></div>");
+                        $(".n" + i + "").append("<h3>" + search.restaurants[i].restaurant.name + "</h3>");
+                        $("#restList2").append("<div class='card-body r" + i + "'></div>");
+                        $(".r" + i + "").append("<img class='rest-image' src='" + search.restaurants[i].restaurant.featured_image + "'>");
+                        $(".r" + i + "").append("<h3><a href='" + search.restaurants[i].restaurant.url + "' target='blank'> Zomato Link </h3>");
+                    }
+                    else{
+                        $("#restList3").append("<div class='card-header n" + i + "'></div>");
+                        $(".n" + i + "").append("<h3>" + search.restaurants[i].restaurant.name + "</h3>");
+                        $("#restList3").append("<div class='card-body r" + i + "'></div>");
+                        $(".r" + i + "").append("<img class='rest-image' src='" + search.restaurants[i].restaurant.featured_image + "'>");
+                        $(".r" + i + "").append("<h3><a href='" + search.restaurants[i].restaurant.url + "' target='blank'> Zomato Link </h3>");
+                    }
                 }
+            })
+            mapboxgl.accessToken = 'pk.eyJ1IjoiamVla29qZWVrIiwiYSI6ImNqcW9kcm01NTRjeW80NGxibGUzY2RqaHIifQ.4Z__ZLSSP5pzbZreWBFDbQ';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                center: [long[0], lat[0]],
+                style: 'mapbox://styles/mapbox/streets-v9',
+                zoom: 11
+            });
         })
-                mapboxgl.accessToken = 'pk.eyJ1IjoiamVla29qZWVrIiwiYSI6ImNqcW9kcm01NTRjeW80NGxibGUzY2RqaHIifQ.4Z__ZLSSP5pzbZreWBFDbQ';
-                var map = new mapboxgl.Map({
-                    container: 'map',
-                    center: [long[0], lat[0]],
-                    style: 'mapbox://styles/mapbox/streets-v9',
-                    zoom: 11
-                });
-    })
-});
+    });
 })
