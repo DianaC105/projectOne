@@ -54,7 +54,6 @@ h1, {
 }
 
 body {
-    background: url(https://wallpapershome.com/images/pages/pic_h/16049.jpg);
     opacity: .90;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -121,8 +120,9 @@ label{
     margin-left:170px;
 }
 #footer{
-    position: relative;
+    position: fixed;
     margin-bottom: 0px;
+    margin-top: -50px;
 }
 .lighten-4{
     opacity:0;
@@ -157,4 +157,11 @@ label{
   h4 {
       font: bolder;
       font-weight: bolder;
+  }
+
+  #background {
+    background: url("https://wallpapershome.com/images/pages/pic_h/16049.jpg");
+    min-height: 96.5vh;
+    background-size: cover;
+
   }
