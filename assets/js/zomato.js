@@ -1,4 +1,19 @@
 $(document).ready(function () {
+    // array of the 50 states
+    var states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
+
+    // function to populate form list with 50 states
+    function stateList() {
+        $("#exampleFormControlSelect1").empty();
+        for (i = 0; i < states.length; i++) {
+            var stateID = $("<option>")
+            stateID.text(states[i]);
+            $("#exampleFormControlSelect1").append(stateID);
+        }
+    }
+
+    // call the function to populate list
+    stateList();
 
     var cityID = [];
     var stateCode = "";
@@ -6,6 +21,22 @@ $(document).ready(function () {
     var cityURL = "https://developers.zomato.com/api/v2.1/cities?";
     var lat = [];
     var long = [];
+
+    var database = firebase.database();
+
+    database.ref().limitToLast(5).on("child_added", function (childSnapshot) {
+            var cityData = childSnapshot.val().city;
+            console.log(cityData);
+
+            var stateData = childSnapshot.val().state;
+            console.log(stateData);
+
+            var lastSearch = $("<ul>").append(
+                $("<li>").text(cityData + ", " + stateData)
+            )
+            $("#last-five").append(lastSearch);
+        
+    })
 
     $("#search").on("click", function (event) {
         event.preventDefault()
@@ -22,29 +53,28 @@ $(document).ready(function () {
         cityName = "q=" + $("#exampleFormControlInput1").val();
         var searchCode = $("#exampleFormControlSelect1").val();
 
-        // Gets cityID commented out for possible later use
-        // var queryURL = cityURL + cityName;
-        // console.log(queryURL);
-        // $.ajax({
-        //     url: queryURL,
-        //     method: "GET",
-        //     headers: {
-        //         "user-key": "090b19f9dcd3d75690c6aa76fb72d9a2"
-        //     }
-        // }).then(function (response) {
-        //     console.log(response);
-        //     for (i = 0; i < response.location_suggestions.length; i++) {
-        //         stateCode = response.location_suggestions[i].state_code;
-        //         if (stateCode === searchCode) {
-        //             console.log(response.location_suggestions[i].id);
-        //             cityID.push(response.location_suggestions[i].id);
+        var cityInput = $("#exampleFormControlInput1").val();
+        var stateInput = $("#exampleFormControlSelect1").val();
 
-        //         }
+        database.ref().push({
+            city: cityInput,
+            state: stateInput,
+        })
 
-        //     }
-        //     console.log(cityID)
+        $("#last-five").empty();
+        database.ref().limitToLast(5).on("child_added", function (childSnapshot) {
+            var cityData = childSnapshot.val().city;
+            console.log(cityData);
 
-        // });
+            var stateData = childSnapshot.val().state;
+            console.log(stateData);
+
+            var lastSearch = $("<ul>").append(
+                $("<li>").text(cityData + ", " + stateData)
+            )
+            $("#last-five").append(lastSearch);
+        
+    })
 
         //mapquest api gets Lat and Long
         var mapquestCity = "&location=" + $("#exampleFormControlInput1").val();
