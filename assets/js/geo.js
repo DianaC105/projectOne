@@ -1,35 +1,70 @@
-// calling API for Geographics - Long & Lad:
+$(document).ready(function () {
+    // Initialize Firebase
+    
+    // VARIABLES
+    // --------------------------------------------------------------------------------
 
-// constructing a queryURL variable we will use instead of the literal string inside of the ajax method
-// $(document).ready(function () {
-//   var location = "";
-//   var adminAreaCode=""
-//   var searchCode=""
-//   $("#search").on("click", function (event) {
-//     event.preventDefault()
-//     searchCode=$("#exampleFormControlSelect1").val();
-//     console.log(searchCode)
-//     location = "&location=" + $("#exampleFormControlInput1").val();
-//     $.ajax({
+    // Get a reference to the database service
+    var database = firebase.database();
 
-//       url: "http://www.mapquestapi.com/geocoding/v1/address?key=zhLU35myS6CkWa8KkESTg9EJ2nTuLAnK" + location,
-//       method: "GET",
+    // Setting initial value of our click counter variable to 0
+    var thumbsUpCounter = 0;
+    var thumbsDownCounter = 0;
 
-//     }).then(function (response) {
-//       console.log(response);
-//       for (i = 0; i < response.results[0].locations.length; i++) {
-//         adminAreaCode = response.results[0].locations[i].adminArea3;
-//         //console.log(adminAreaCode)
-//         if (adminAreaCode === searchCode) {
-//           console.log(adminAreaCode)
-//             console.log(response.results[0].locations[i].mapUrl);
-//             $("#map").append("<img src='" + response.results[0].locations[i].mapUrl + "'>")
+    // FUNCTIONS + EVENTS
+    // --------------------------------------------------------------------------------
+
+    // On Click of Thums-up Button
+    $("#thumbsUp").on("click", function () {
+        // event.preventDefault();
+        // Add to clickCounter
+        thumbsUpCounter++;
+        console.log(thumbsUpCounter);
+        //  Store Click Data to Firebase in a JSON property called clickCount
+        // Note how we are using the Firebase .set() method
+        database.ref().set({
+            thumbsUpCount: thumbsUpCounter,
+        });
+    });
+
+    // On Click of Thums-down Button
+    $("#thumbsDown").on("click", function () {
+        // event.preventDefault();
+        // Add to clickCounter
+        thumbsDownCounter++;
+        console.log(thumbsDownCounter);
+
+        //  Store Click Data to Firebase in a JSON property called clickCount
+        // Note how we are using the Firebase .set() method
+        database.ref().set({
+            thumbsDownCount: thumbsDownCounter,
+        });
+    });
 
 
-//         }
 
-//     }
+    // To retreive data from database and Presenting the Data on html page
+    // --------------------------------------------------------------------------------
 
-//     });
-//   });
-// });
+    // Using .on("value", function(snapshot)) syntax will retrieve the data
+    // from the database (both initially and every time something changes)
+    // This will then store the data inside the variable "snapshot". We could rename "snapshot" to anything.
+    //   database.ref().on("value", function(snapshot) {
+
+    //     // Then we console.log the value of snapshot
+    //     console.log(snapshot.val());
+
+
+    //     // Then we change the html associated with the number.
+    //     $("#thumsup-value").text(snapshot.val().thumsupCount);
+
+    //     $("#thumsdown-value").text(snapshot.val().thumsdownCount);
+
+    //     // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
+    //     // Again we could have named errorObject anything we wanted.
+    //   }, function(errorObject) {
+
+    //     // In case of error this will print the error
+    //     console.log("The read failed: " + errorObject.code);
+    //   });
+})
