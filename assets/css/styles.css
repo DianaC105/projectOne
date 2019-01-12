@@ -1,34 +1,41 @@
-ul{
+ ul {
     height: 60px; 
     background-color: #cf4f28;
     flood-opacity: inherit;
     color: white;
  }
+
  li {
      margin-top: 5px;
      text-align: center;
      padding-top: 20px;
  }
+
  .fa-thumbs-up:before {
      color:rgb(13, 109, 10);
  }
+
  .fa-thumbs-down:before {
      color: rgb(202, 6, 6);
  }
- #thumbsUp{
+
+ #thumbsUp {
      margin-left: 85%;
      float: right;
  }
+
  /* button{
      margin-left: 40%;
  } */
- #counter{
+
+ #counter {
      float:right;
      position: static;
      margin-left: 5px;
      margin-top: 13px;
  }
- #counterTitle{
+
+ #counterTitle {
      float: right;
      position: static;
      margin-left: 80%;
@@ -36,16 +43,19 @@ ul{
      font: bold;
      color: white;
  }
- a{
+
+ a {
      font-size: 18px;
      justify-content:center;
      align-items: center;
      text-align: auto;
  }
+
  .display-4{
      height: 50px;
      width: 50px;
  }
+
  .jumbotron {
      /*background: url(https://wallpapershome.com/images/pages/pic_h/16049.jpg);*/
      /*background-blend-mode: luminosity;*/
@@ -64,93 +74,114 @@ ul{
      padding-top: 10px;
      
  }
- h1, {
+
+ h1 {
      font-size: 300px;
  }
+
  #userName {
      width: 150px;
      margin-left: 70%;
      border-color: #cf4f28;
      color: #cf4f28;
  }
+
  #password {
      width: 150px;
      margin-left:70%;
      border-color: #cf4f28;
      color: #cf4f28;
  }
+
  body {
      opacity: .90;
      background-repeat: no-repeat;
      background-attachment: fixed;
  }
- #form-group{
+
+ #form-group {
      display: auto;
      align-items: flex-start;
  }
+
  /* #col s12 m6{
      opacity: .65;
      background-color:red;
      margin-right: 45px
  } */
- #exampleFormControlInput1{
+
+ #exampleFormControlInput1 {
      margin-left: 75px;
      margin-right: 75px;
      width: 450px;
      background-color: aliceblue;
  }
- #exampleFormControlSelect1{
+
+ #exampleFormControlSelect1 {
      margin-left: 75px;
      margin-right: 75px;
      width: 450px;
      background: aliceblue;
      opacity: 1;
  }
- #restSearch-appear-here{
+
+ #restSearch-appear-here {
      background-color: rgba(179, 151, 151, 0.897);
  }
- h3{
+
+ h3 {
      font-size: 20px;
      color:blue;
  }
- .rest-image{
+
+ .rest-image {
      height: 90px;
      width: 120px;
  }
- #search{
+
+ #search {
      color: white;
      background-color:#cf4f28;
      margin-left:200px;
      margin-top: 25px;
      width: 100px;
  }
- #card-content{
+
+ #card-content {
      font-size: 18px;
  }
+
  .btnSubmit {
      margin-left: 75%;
      margin-bottom: 75%;
  }
- label{
+
+ label {
      margin-left:170px;
  }
- #footer{
+
+ #footer {
      position: fixed;
      margin-bottom: 0px;
      margin-top: -50px;
  }
- .lighten-4{
+
+ .lighten-4 {
      opacity:0;
  }
- #restList{
+
+ #restList {
      opacity:0;
  }
- #restList2{
+
+ #restList2 {
      opacity:0;
  }
- #restList3{
+
+ #restList3 {
      opacity:0;
  }
+
  .marker {
      background-image: url('../css/mapbox-icon.png');
      background-size: cover;
@@ -158,51 +189,114 @@ ul{
      height: 50px;
      border-radius: 50%;
      cursor: pointer;
-   }
-   .mapboxgl-popup {
+ }
+ .mapboxgl-popup {
      max-width: 200px;
-   }
+ }
    
-   .mapboxgl-popup-content {
-     text-align: center;
-     font-family: 'Open Sans', sans-serif;
-   }
-   h4 {
-       font: bolder;
-       font-weight: bolder;
-   }
-   #background {
-     background: url("https://wallpapershome.com/images/pages/pic_h/16049.jpg");
-     min-height: 96.5vh;
-     background-size: cover;
-   }
+ .mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+ }
+
+ h4 {
+    font: bolder;
+    font-weight: bolder;
+ }
+
+ #background {
+    background: url("https://wallpapershome.com/images/pages/pic_h/16049.jpg");
+    min-height: 96.5vh;
+    background-size: cover;
+ }
 
     /*Media Queries Start Here*/
 
+@media only screen and (max-width:1530px){
+    #counterTitle {
+        float: right;
+        position: static;
+        margin-left: 70%;
+}    
+}
+
+@media only screen and (max-width:1200px){
+    .rest-image {
+        height: 90px;
+        width: 90px;
+    }
+}
+
+@media only screen and (max-width:1020px){
+    #counterTitle {
+        float: right;
+        position: static;
+        margin-left: 60%;
+}    
+}
+
+@media only screen and (max-width:991px){
+    #previousSearches {
+        width: 40px;
+        height: 150px;
+        margin-left: 160px;
+}    
+    #searchCriteria {
+        width: 50%;
+        margin-left: 0px;
+        float: left;
+}    
+#exampleFormControlInput1 {
+    margin-left: 0px;
+    margin-right: 75px;
+    width: 450px;
+    background-color: aliceblue;
+}
+
+#exampleFormControlSelect1 {
+    margin-left: 0px;
+    margin-right: 75px;
+    width: 450px;
+    background: aliceblue;
+    opacity: 1;
+}
+}
+
 @media only screen and (max-width:980px) {
-    #restList{
+    #restList {
         width: 50%
     }
-    #restList2{
+    #restList2 {
         width: 50%;
     }
-    #restList3{
+    #restList3 {
         width: 50%
     }
     }
-      
+    
+@media only screen and (max-width:935px){
+    #previousSearches {
+        margin-left: 140px;
+}    
+}
+
+@media only screen and (max-width:895px){
+    #previousSearches {
+        margin-left: 120px;
+}    
+}      
   
   @media only screen and (max-width: 768px) {
-    .jumbotron{
+    .jumbotron {
         height: 35%;
     }
-    #exampleFormControlInput1{
+    #exampleFormControlInput1 {
         width:300px;
     }
-    #exampleFormControlSelect1{
+    #exampleFormControlSelect1 {
         width: 300px;
     }
-    .card{
+    .card {
         position:absolute;
         margin-right:90px;
         display:table-cell;
@@ -210,15 +304,15 @@ ul{
   }
   
   @media only screen and (max-width: 640px) {
-    #exampleFormControlInput1{
+    #exampleFormControlInput1 {
         margin-left: auto;
         margin-right: auto;
     }
-    #exampleFormControlSelect1{
+    #exampleFormControlSelect1 {
         margin-left: auto;
         margin-right: auto;
     }
-    .card{
+    .card {
         position:absolute;
         margin-right:90px;
         display:table-cell;
