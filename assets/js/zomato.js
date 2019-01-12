@@ -78,7 +78,7 @@ $(document).ready(function () {
 
         //mapquest api gets Lat and Long
         var mapquestCity = "&location=" + $("#exampleFormControlInput1").val();
-        var mapquestURL = "http://www.mapquestapi.com/geocoding/v1/address?key=zhLU35myS6CkWa8KkESTg9EJ2nTuLAnK" + mapquestCity;
+        var mapquestURL = "https://www.mapquestapi.com/geocoding/v1/address?key=zhLU35myS6CkWa8KkESTg9EJ2nTuLAnK" + mapquestCity;
         console.log(mapquestURL)
 
         $.ajax({
