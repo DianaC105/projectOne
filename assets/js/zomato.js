@@ -15,6 +15,7 @@ $(document).ready(function () {
     // call the function to populate list
     stateList();
 
+    // some global variables defined
     var cityID = [];
     var stateCode = "";
     var cityName = "";
@@ -22,8 +23,10 @@ $(document).ready(function () {
     var lat = [];
     var long = [];
 
+    //  variable to call firebase through
     var database = firebase.database();
 
+    // call to firebase to populate a list of previously searched cities and states, limited to 5, and appends them to list
     database.ref().limitToLast(5).on("child_added", function (childSnapshot) {
             var cityData = childSnapshot.val().city;
             console.log(cityData);
@@ -38,17 +41,23 @@ $(document).ready(function () {
         
     })
 
+    // on-click function to execute a search based on form data that is input by user
     $("#search").on("click", function (event) {
         event.preventDefault()
+
+        // animates the hidden map div to be visible
         $(".lighten-4").animate({ opacity: 1 });
         lat = [];
         long = [];
+
+        // clears previous data from divs and makes them visible
         $("#restList").empty();
         $("#restList2").empty();
         $("#restList3").empty();
         $("#restList").animate({ opacity: 1 });
         $("#restList2").animate({ opacity: 1 });
         $("#restList3").animate({ opacity: 1 });
+
         //zomato ajax call
         cityName = "q=" + $("#exampleFormControlInput1").val();
         var searchCode = $("#exampleFormControlSelect1").val();
@@ -56,11 +65,13 @@ $(document).ready(function () {
         var cityInput = $("#exampleFormControlInput1").val();
         var stateInput = $("#exampleFormControlSelect1").val();
 
+        // takes data from form inputs and stores it to a firebase database
         database.ref().push({
             city: cityInput,
             state: stateInput,
         })
 
+        // clears existing list and makes a call to firebase to populate a list of previously searched cities and states, limited to 5, and appends them to list
         $("#last-five").empty();
         database.ref().limitToLast(5).on("child_added", function (childSnapshot) {
             var cityData = childSnapshot.val().city;
@@ -120,8 +131,10 @@ $(document).ready(function () {
             }).then(function (search) {
                 console.log(search.restaurants)
 
+                //for loop to pass through reataurant array
                 for (i = 0; i < search.restaurants.length; i++) {
 
+                    //if else ladder to ensure the results display in 3 different columns
                     if (i <= 2) {
                         $("#restList").append("<div class='card-header n" + i + "'></div>");
                         $(".n" + i + "").append("<h3>" + search.restaurants[i].restaurant.name + "</h3>");
@@ -145,6 +158,7 @@ $(document).ready(function () {
                     }
                 }
 
+                //map display based on mapquest api call to grab lat and long
                 mapboxgl.accessToken = 'pk.eyJ1IjoiamVla29qZWVrIiwiYSI6ImNqcW9kcm01NTRjeW80NGxibGUzY2RqaHIifQ.4Z__ZLSSP5pzbZreWBFDbQ';
                 var map = new mapboxgl.Map({
                     container: 'map',
@@ -153,6 +167,7 @@ $(document).ready(function () {
                     zoom: 10
                 });
 
+                // for loop to add tags to map markers using mapbox GL JS by mapbox and zomato api call results
                 for (i = 0; i < search.restaurants.length; i++) {
                     var geojson = {
                         type: 'FeatureCollection',
